@@ -1,0 +1,106 @@
+module Base
+{
+  recipe Rip Clothing
+  {
+    [Recipe.GetItemTypes.RipClothing_Cotton],
+
+    Result:RippedSheets,
+    RemoveResultItem:true,
+    InSameInventory:true,
+    Sound:ClothesRipping,
+    Time:100.0,
+    AnimNode:RipSheets,
+    OnCreate:Recipe.OnCreate.RipClothing,
+    OnTest:Recipe.OnTest.IsNotWorn,
+    Override:true,
+    OnGiveXP:ETCRecipes.OnGiveXP.Tailoring5,
+  }
+
+  recipe Rip Clothing /*this second recipe is so that worn clothing items are not consumed when ripping all clothing*/
+  {
+    [Recipe.GetItemTypes.RipClothing_Cotton],
+
+    Result:RippedSheets,
+    RemoveResultItem:true,
+    InSameInventory:true,
+    Sound:ClothesRipping,
+    Time:100.0,
+    AnimNode:RipSheets,
+    OnCreate:Recipe.OnCreate.RipClothing,
+    OnTest:Recipe.OnTest.IsWorn,
+    Override:true,
+    OnGiveXP:ETCRecipes.OnGiveXP.Tailoring5,
+  }
+
+  --[[ DENIM - RIP CLOTHING ]]--
+
+  recipe Rip Clothing
+  {
+    [Recipe.GetItemTypes.RipClothing_Denim],
+    keep [Recipe.GetItemTypes.Scissors],
+
+    Result:DenimStrips,
+    RemoveResultItem:true,
+    InSameInventory:true,
+    Sound:ClothesRipping,
+    Time:100.0,
+    AnimNode:RipSheets,
+    OnCreate:Recipe.OnCreate.RipClothing,
+    OnTest:Recipe.OnTest.IsNotWorn,
+    Override:true,
+    OnGiveXP:ETCRecipes.OnGiveXP.Tailoring10,
+  }
+
+  recipe Rip Clothing /*this second recipe is so that worn clothing items are not consumed when ripping all clothing*/
+  {
+    [Recipe.GetItemTypes.RipClothing_Denim],
+    keep [Recipe.GetItemTypes.Scissors],
+
+    Result:DenimStrips,
+    RemoveResultItem:true,
+    InSameInventory:true,
+    Sound:ClothesRipping,
+    Time:100.0,
+    AnimNode:RipSheets,
+    OnCreate:Recipe.OnCreate.RipClothing,
+    OnTest:Recipe.OnTest.IsWorn,
+    Override:true,
+    OnGiveXP:ETCRecipes.OnGiveXP.Tailoring10,
+  }
+
+  --[[ LEATHER - RIP CLOTHING ]]--
+
+  recipe Rip Clothing
+  {
+    [Recipe.GetItemTypes.RipClothing_Leather],
+    keep [Recipe.GetItemTypes.Scissors],
+
+    Result:LeatherStrips,
+    RemoveResultItem:true,
+    InSameInventory:true,
+    Sound:ClothesRipping,
+    Time:100.0,
+    AnimNode:RipSheets,
+    OnCreate:Recipe.OnCreate.RipClothing,
+    OnTest:Recipe.OnTest.IsNotWorn,
+    Override:true,
+    OnGiveXP:ETCRecipes.OnGiveXP.Tailoring15,
+  }
+
+  recipe Rip Clothing /*this second recipe is so that worn clothing items are not consumed when ripping all clothing*/
+  {
+    [Recipe.GetItemTypes.RipClothing_Leather],
+    keep [Recipe.GetItemTypes.Scissors],
+
+    Result:LeatherStrips,
+    RemoveResultItem:true,
+    InSameInventory:true,
+    Sound:ClothesRipping,
+    Time:100.0,
+    AnimNode:RipSheets,
+    OnCreate:Recipe.OnCreate.RipClothing,
+    OnTest:Recipe.OnTest.IsWorn,
+    Override:true,
+    OnGiveXP:ETCRecipes.OnGiveXP.Tailoring15,
+  }
+}
