@@ -1,5 +1,18 @@
 # Expanded Tailoring Clothes
 
+## 1.0.1
+
+This was de second stable release.
+
+
+### Refactored/Changed
+
+- Fixed workshop description;
+
+
+--
+
+
 ## 1.0.0
 
 This was de first stable release.
