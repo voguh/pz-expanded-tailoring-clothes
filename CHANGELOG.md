@@ -1,5 +1,17 @@
 # Expanded Tailoring Clothes
 
+## 1.0.2
+
+Fix broken recipes and drops.
+
+
+### Refactored/Changed
+
+- Refactored rip clothing recipe to prevent override of default recipes, added static drops and xp gain in `Recipe.OnCreate.RipClothing`;
+
+
+--
+
 ## 1.0.1
 
 This was de second stable release.
