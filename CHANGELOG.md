@@ -1,5 +1,18 @@
 # Expanded Tailoring Clothes
 
+## 1.1.0
+
+Expand rip clothes to underwear.
+
+
+### Added
+
+- Added all clothes that property `getBodyLocation` contains `Underwear` a property `FabricType` with value `Cotton`;
+
+
+--
+
+
 ## 1.0.2
 
 Fix broken recipes and drops.
@@ -11,6 +24,7 @@ Fix broken recipes and drops.
 
 
 --
+
 
 ## 1.0.1
 
