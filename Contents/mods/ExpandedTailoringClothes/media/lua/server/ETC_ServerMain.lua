@@ -1,3 +1,5 @@
+if not ETCRecipe then ETCRecipe = {} end
+
 local ITEMS_DEFAULT_DROPS = {
     ["Base.HolsterSimple"] = "Base.LeatherStrips",
     ["Base.HolsterDouble"] = "Base.LeatherStrips",
@@ -5,26 +7,35 @@ local ITEMS_DEFAULT_DROPS = {
 }
 
 function Recipe.OnGiveXP.Tailoring5(recipe, ingredients, result, player)
-    player:getXp():AddXP(Perks.Tailoring, 5 + (5 * (0.125 * player:getPerkLevel(Perks.Tailoring))));
+    local xpPoints = 5;
+    player:getXp():AddXP(Perks.Tailoring, xpPoints + (xpPoints * (0.125 * player:getPerkLevel(Perks.Tailoring))));
 end
 
 function Recipe.OnGiveXP.Tailoring10(recipe, ingredients, result, player)
-    player:getXp():AddXP(Perks.Tailoring, 10 + (10 * (0.125 * player:getPerkLevel(Perks.Tailoring))));
+    local xpPoints = 10;
+    player:getXp():AddXP(Perks.Tailoring, xpPoints + (xpPoints * (0.125 * player:getPerkLevel(Perks.Tailoring))));
 end
 
 function Recipe.OnGiveXP.Tailoring15(recipe, ingredients, result, player)
-    player:getXp():AddXP(Perks.Tailoring, 15 + (15 * (0.125 * player:getPerkLevel(Perks.Tailoring))));
+    local xpPoints = 15;
+    player:getXp():AddXP(Perks.Tailoring, xpPoints + (xpPoints * (0.125 * player:getPerkLevel(Perks.Tailoring))));
 end
 
 local OriginalOnCreateRipClothing = Recipe.OnCreate.RipClothing;
 function Recipe.OnCreate.RipClothing(items, result, player, selectedItem)
-    local item = items:get(0)
+    local item = items:get(0);
+    local itemToCreate = nil;
 
     if ITEMS_DEFAULT_DROPS[item:getFullType()] ~= nil then
-        local itemToCreate = InventoryItemFactory.CreateItem(ITEMS_DEFAULT_DROPS[item:getFullType()]);
-        player:getInventory():AddItem(itemToCreate);
+        itemToCreate = InventoryItemFactory.CreateItem(ITEMS_DEFAULT_DROPS[item:getFullType()]);
+    elseif string.contains(item:getBodyLocation(), "Underwear") then
+        itemToCreate = InventoryItemFactory.CreateItem("Base.RippedSheets");
     else
         OriginalOnCreateRipClothing(items, result, player, selectedItem);
+    end
+
+    if itemToCreate ~= nil then
+        player:getInventory():AddItem(itemToCreate);
     end
 
     if item:getFabricType() == "Cotton" then
